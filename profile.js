@@ -7,7 +7,7 @@ $(document).ready(function () {
   }
 
   $.ajax({
-    url: 'php/profile.php',
+    url: 'profile.php',
     method: 'POST',
     dataType: 'json',
     data: { email: session.email },
@@ -25,7 +25,7 @@ $(document).ready(function () {
   $('#profileForm').submit(function (e) {
     e.preventDefault();
     $.ajax({
-      url: 'php/updateProfile.php',
+      url: 'updateProfile.php',
       method: 'POST',
       data: {
         email: session.email,
