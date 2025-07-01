@@ -2,7 +2,7 @@ $(document).ready(function () {
   $('#registerForm').submit(function (e) {
     e.preventDefault();
     $.ajax({
-      url: 'register.php',
+      url: 'register.php', // ✅ FIXED: No "php/" prefix
       method: 'POST',
       data: {
         name: $('#name').val(),
@@ -18,3 +18,4 @@ $(document).ready(function () {
     });
   });
 });
+
