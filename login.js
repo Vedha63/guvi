@@ -2,7 +2,7 @@ $(document).ready(function () {
   $('#loginForm').submit(function (e) {
     e.preventDefault();
     $.ajax({
-      url: 'php/login.php',
+      url: 'login.php',
       method: 'POST',
       dataType: 'json',
       data: {
