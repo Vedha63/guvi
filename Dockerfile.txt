@@ -1,0 +1,21 @@
+FROM php:8.1-apache
+
+# Enable Apache mod_rewrite
+RUN a2enmod rewrite
+
+# Install Redis & MongoDB PHP extensions
+RUN apt-get update && apt-get install -y \
+    libzip-dev unzip libpng-dev libonig-dev libxml2-dev \
+    libcurl4-openssl-dev pkg-config libssl-dev libicu-dev \
+    g++ gnupg curl && \
+    pecl install redis mongodb && \
+    docker-php-ext-enable redis mongodb
+
+# Set working dir & copy app
+WORKDIR /var/www/html
+COPY . .
+
+# Set permissions
+RUN chown -R www-data:www-data /var/www/html
+
+EXPOSE 80
