@@ -1,1 +1,29 @@
-/* Your custom CSS */
+body {
+  background-color: #f8f9fa;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.card {
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.btn-primary, .btn-success {
+  font-weight: bold;
+  letter-spacing: 0.5px;
+}
+
+h3 {
+  font-weight: bold;
+  color: #343a40;
+}
+
+input[type="email"],
+input[type="password"],
+input[type="text"],
+input[type="date"],
+input[type="number"] {
+  border-radius: 8px;
+  padding: 10px;
+  border: 1px solid #ced4da;
+}
