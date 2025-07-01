@@ -2,7 +2,7 @@ $(document).ready(function () {
   $('#registerForm').submit(function (e) {
     e.preventDefault();
     $.ajax({
-      url: 'php/register.php',
+      url: 'register.php',
       method: 'POST',
       data: {
         name: $('#name').val(),
