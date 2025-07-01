@@ -10,7 +10,8 @@
     <div class="row justify-content-center">
       <div class="col-md-8">
         <div class="card p-4 shadow">
-          <h3 class="text-center mb-4">Profile</h3>
+          <h3 class="text-center mb-4" id="welcomeUser">Welcome!</h3>
+
           <form id="profileForm">
             <div class="mb-3">
               <label for="dob" class="form-label">Date of Birth</label>
@@ -26,21 +27,34 @@
             </div>
             <button type="submit" class="btn btn-primary w-100">Update Profile</button>
           </form>
-          <div class="mt-3 text-center">
-            <button onclick="logout()" class="btn btn-danger">Logout</button>
+
+          <div class="text-center mt-3">
+            <button class="btn btn-danger" onclick="logout()">Logout</button>
           </div>
         </div>
       </div>
     </div>
   </div>
 
-  <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
-  <script src="js/profile.js"></script>
   <script>
+    const name = localStorage.getItem('userName') || 'User';
+    document.getElementById('welcomeUser').innerText = `Welcome, ${name}!`;
+
+    document.getElementById('profileForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const dob = document.getElementById('dob').value;
+      const age = document.getElementById('age').value;
+      const contact = document.getElementById('contact').value;
+
+      alert(`Profile Updated:\nDOB: ${dob}\nAge: ${age}\nContact: ${contact}`);
+    });
+
     function logout() {
-      localStorage.removeItem('userSession');
+      localStorage.clear();
       window.location.href = 'index.html';
     }
   </script>
 </body>
 </html>
+
+
