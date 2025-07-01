@@ -1,6 +1,5 @@
 <?php
-require 'db_connection.php';
-
+// Simulated login response
 $email = $_POST['email'] ?? '';
 $password = $_POST['password'] ?? '';
 
@@ -9,13 +8,11 @@ if (!$email || !$password) {
     exit;
 }
 
-$stmt = $pdo->prepare("SELECT * FROM users WHERE email = ? AND password = ?");
-$stmt->execute([$email, $password]);
-$user = $stmt->fetch();
-
-if ($user) {
+// Just simulate login success for demo
+if ($email === 'test@example.com' && $password === '123456') {
     echo json_encode(["status" => "success", "email" => $email]);
 } else {
     echo json_encode(["status" => "error", "message" => "Invalid credentials"]);
 }
 ?>
+
